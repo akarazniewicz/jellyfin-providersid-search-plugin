@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jellyfin-providersid-search-plugin", "Jellyfin.Plugin.ProvidersIdSearch\Jellyfin.Plugin.ProvidersIdSearch.csproj", "{5D12258F-42A5-4F16-A281-82896655B547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jellyfin-providersid-search-plugin", "Jellyfin.Plugin.ProvidersIdSearch.csproj", "{5D12258F-42A5-4F16-A281-82896655B547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,6 +16,7 @@ Global
 		{5D12258F-42A5-4F16-A281-82896655B547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D12258F-42A5-4F16-A281-82896655B547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

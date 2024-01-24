@@ -31,7 +31,7 @@ jobs:
           release_name="jellyfin-providersid-search-plugin-$tag"
 
           # Build everything
-          dotnet publish Jellyfin.Plugin.ProvidersIdSearch.csproj -c Release -o "release"
+          dotnet build Jellyfin.Plugin.ProvidersIdSearch.csproj -c Release -o release
 
           zip -r "release" "${release_name}.zip"
 
