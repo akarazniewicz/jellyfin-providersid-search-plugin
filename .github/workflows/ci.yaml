@@ -33,7 +33,7 @@ jobs:
           # Build everything
           dotnet build Jellyfin.Plugin.ProvidersIdSearch.csproj -c Release -o release
 
-          zip -r "release" "${release_name}.zip"
+          zip -r "${release_name}.zip" release
 
       - name: Publish
         uses: softprops/action-gh-release@v1
