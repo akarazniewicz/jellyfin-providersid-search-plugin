@@ -31,9 +31,9 @@ jobs:
           release_name="jellyfin-providersid-search-plugin-$tag"
 
           # Build everything
-          dotnet publish Jellyfin.Plugin.ProvidersIdSearch\Jellyfin.Plugin.ProvidersIdSearch.csproj --framework net6.0 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+          dotnet publish Jellyfin.Plugin.ProvidersIdSearch.csproj -c Release -o "release"
 
-          zip -r "${release_name}" "${release_name}.zip"
+          zip -r "release" "${release_name}.zip"
 
       - name: Publish
         uses: softprops/action-gh-release@v1
