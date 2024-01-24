@@ -33,12 +33,12 @@ jobs:
           # Build everything
           dotnet build Jellyfin.Plugin.ProvidersIdSearch.csproj -c Release -o release
 
-          zip -r "${release_name}.zip" release
+          zip -r "${release_name}.zip" release/*.dll
 
       - name: Publish
         uses: softprops/action-gh-release@v1
         with:
-          files: "${release_name}*" 
+          files: "*.zip" 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               
