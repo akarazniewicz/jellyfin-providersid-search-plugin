@@ -3,9 +3,9 @@
     "category": "General",
     "guid": "35e94cd5-63be-4fad-98a7-b4b9bf0471fe",
     "name": "Providers ID Items Search API",
-    "description": "Companion plugin to Stremio Jellyfin integration. Exposes new endopint to lookup media items based on IMDB IDs.",
+    "description": "Companion plugin to Stremio Jellyfin integration. Exposes new endpoint to lookup media items based on IMDB IDs.",
     "owner": "karaznie",
-    "overview": "Copmanion Stremio Jellyfin plugin",
+    "overview": "Companion Stremio Jellyfin plugin",
     "versions":
         [
             {
