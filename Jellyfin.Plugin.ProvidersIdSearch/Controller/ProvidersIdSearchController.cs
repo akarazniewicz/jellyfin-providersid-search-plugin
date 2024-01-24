@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+using static MediaBrowser.Model.Entities.MetadataProvider;
+
 namespace Jellyfin.Plugin.ProvidersIdSearch.Controller;
 
 [ApiController]
@@ -30,9 +32,11 @@ public class ProvidersIdSearchController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     public ActionResult<IReadOnlyList<BaseItemDto>> FindItemsByProvidersId(
         [FromQuery] string ProviderId
-    ) {
-
-        List<BaseItem> items = libraryManager.GetItemList(new InternalItemsQuery() { HasAnyProviderId  = new Dictionary<string, string> { { "Imdb", ProviderId } } });
+    )
+    {
+        List<BaseItem> items = libraryManager.GetItemList(
+            new InternalItemsQuery() { HasAnyProviderId = new Dictionary<string, string> { { nameof(Imdb), ProviderId } } }
+            );
 
         return Ok(dtoService.GetBaseItemDtos(items, new DtoOptions()));
     }

@@ -1,0 +1,50 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Release
+    strategy:
+      matrix:
+        kind: ['linux']
+        include:
+          - kind: linux
+            os: ubuntu-latest
+            target: linux-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0
+
+      - name: Build
+        shell: bash
+        run: |
+          tag=$(git describe --tags --abbrev=0)
+          release_name="jellyfin-providersid-search-plugin-$tag"
+
+          # Build everything
+          dotnet publish Jellyfin.Plugin.ProvidersIdSearch\Jellyfin.Plugin.ProvidersIdSearch.csproj --framework net6.0 --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+
+          zip -r "${release_name}" "${release_name}.zip"
+
+      - name: Publish
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "${release_name}*" 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              
+
+          
+
+
+
+
